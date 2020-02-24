@@ -1,0 +1,15 @@
+<%= link_to "return to list", cars_path %>
+
+<h1><%= @car.name %></h1> <h1>CAR IMAGE</h1>
+<h1><%= @car.model %></h1>
+<h1><%= @car.description %></h1>
+<h1><%= @car.price %></h1>
+<h1><%= @car.type %></h1>
+
+<%= link_to "Book now!", Book_car_path(@car.id) %>
+
+<% @car.reviews.each do |review|%>
+    <h1><%= review.name %></h1> | <h1><%= review.rating %></h1>
+    <p><%= review.description %></p>
+<% end %>
+
