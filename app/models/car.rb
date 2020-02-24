@@ -4,7 +4,7 @@ class Car < ApplicationRecord
   belongs_to :user
   validates :model, presence: true
   validates :brand, presence: true
-  validates :type, presence: true
+  validates :kind, presence: true
   validates :price, presence: true
   validates :description, presence: true
 end
