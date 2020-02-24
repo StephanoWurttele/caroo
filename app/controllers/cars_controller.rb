@@ -4,7 +4,7 @@ class CarsController < ApplicationController
     # if params[:query]
     #   @cars = Car.where(params[:model, :type, :brand, :price])
     # else
-    #   @cars = Car.all
+    @cars = Car.all
     # end
     # Checking this tomorrow 25/02
   end
