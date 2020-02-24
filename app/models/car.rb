@@ -7,4 +7,8 @@ class Car < ApplicationRecord
   validates :kind, presence: true
   validates :price, presence: true
   validates :description, presence: true
+
+  def show
+    "#{self.kind.capitalize} #{self.model}. #{self.brand}. Owner: #{self.user.username}"
+  end
 end
