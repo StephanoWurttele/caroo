@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Caroo</h1>
+
+<p>View and Search Cars</p>
+
+<%= form_for([@user, @booking]) do |f| %>
+  <p>
+    <%= f.label 'brand', 'Brand' %>
+    <%= f.association :brand %>
+  </p>
+  <p>
+    <%= f.label 'model', 'Model' %>
+    <%= f.association :model %>
+  </p>
+  <p>
+    <%= f.label 'type', 'Type' %>
+    <%= f.association :type %>
+  </p>
+  <p>
+    <%= f.label 'price', 'Price' %>
+    <%= f.number_field :car, :price, in:100.0..500.0, step: 50.0 %>
+  </p>
+  <%= f.submit 'Submit' %>
+<% end %>
+
+
