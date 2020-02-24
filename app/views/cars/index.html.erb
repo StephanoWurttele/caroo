@@ -1,0 +1,5 @@
+<h1>Cars</h1>
+<% @cars.each do |car| %>
+    <%= "#{car.kind.capitalize} #{car.model}. #{car.brand}. Rented by #{car.user.username}"%>
+    <br></br>
+<% end %>
