@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users do
-    resources :cars
+  devise_for :users
+  resources :cars
   end
 end
