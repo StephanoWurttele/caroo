@@ -1,5 +1,9 @@
-  <h2><strong>Cars List</strong></h2>
-  <% @cars.each do |car| %>
-    <h1><%= car.brand %></h1>
-  <% end %>
+
+<h1>Cars</h1>
+<% @cars.each do |car| %>
+    <%= car.show %>
+    <%= new_booking_url %>
+    <%= link_to "Rent!", new_booking_url %>
+    <br></br>
+<% end %>
 
