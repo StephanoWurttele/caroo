@@ -19,11 +19,9 @@ class BookingsController < ApplicationController
   def create
     @car = Car.find(params[:car_id])
     @booking = Booking.new(car: @car, user: current_user)
-    raise
     if @booking.save
       redirect_to booking_url(@booking)
     else
-      raise
       render :new
     end
   end
