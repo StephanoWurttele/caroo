@@ -5,7 +5,6 @@
 <p>Price: <%= @car.price %></p>
 <%= link_to "Book", new_car_booking_path(@car) %>
 <p><%= link_to "Edit car", edit_car_url(@car) %> - <%= link_to "Delete car", car_path(@car), method: "delete" %></p>
-
 <h2>Reviews</h2>
 <br></br>
 <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>

@@ -1,4 +1,5 @@
-<%= simple_form_for @car do |f| %>
+
+  <%= simple_form_for @car do |f| %>
     <%= f.input :brand, placeholder: 'Brand' %>
     <%= f.input :model, placeholder: 'Model' %>
     <%= f.input :kind, :collection => @kinds %>
@@ -6,4 +7,3 @@
     <%= f.input :description, placeholder: 'Tell us a little bit about your car!' %>
     <%= f.submit "Create car!", class: "btn btn-primary" %>
   <% end %>
-  

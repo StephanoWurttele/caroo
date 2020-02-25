@@ -2,7 +2,7 @@
 <% @bookings.each do |booking| %>
     <h5><%= booking.car.info %></h5>
     <p>Owner: <%= booking.car.owner %></p>
-    <p>Price: <%= booking.car.price %></p>
+    <p>Price: £<%= booking.car.price %></p>
     <%= link_to "See more", booking_url(booking) %>
     <br></br>
 <% end %>
