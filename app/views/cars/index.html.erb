@@ -2,8 +2,7 @@
 <h1>Cars</h1>
 <% @cars.each do |car| %>
     <%= car.show %>
-    <%= new_booking_url %>
-    <%= link_to "Rent!", new_booking_url %>
+    <%= link_to "See more", car_url(car) %>
     <br></br>
 <% end %>
 
