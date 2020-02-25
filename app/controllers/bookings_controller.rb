@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   
   def index
-    @bookings = current_user.bookings
+    @bookings = Booking.where(user: current_user)
   end
 
   def show
@@ -17,8 +17,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    user_car = Car.find(params[:car_id])
-    @booking = Booking.new(car: user_car, user: current_user)
+    @car = Car.find(params[:car_id])
+    @booking = Booking.new(car: @car, user: current_user)
+    raise
     if @booking.save
       redirect_to booking_url(@booking)
     else
