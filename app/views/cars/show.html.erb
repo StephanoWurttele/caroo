@@ -1,19 +1,35 @@
-<h1>Car</h1>
-<h5><%= @car.info %></h5>
-<p>Owner: <%= @car.owner %></p>
-<p>Desc: <%= @car.description %></p>
-<p>Price: <%= @car.price %></p>
-<%= link_to "Book", new_car_booking_path(@car) %>
-<h2>Reviews</h2>
-<% if user_signed_in? %>
-  <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
-<% end %>
-  <% @car.reviews.each do |review| %>
-    <h1><%= review.rating %></h1>
-    <p><%= review.content %></p>
-    <% if (review.car.user == current_user) %>
-      <%= link_to "Edit my review", edit_review_path(review) %> - <%= link_to "Delete a Review", review_path(review), method: "delete" %>
-    <% end %>
-  <% end %>
 
+<h1 class="text-center">Car</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h5><%= @car.info %></h5>
+      <p>Owner: <%= @car.user.name %></p>
+      <p>Desc: <%= @car.description %></p>
+      <p>Price: <%= @car.price %>£</p>
+      <p class="btn btn-success"><%= link_to "Rent", car_bookings_url(@car), method: :post %></p>
+    </div>
+  </div>
+</div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <strong>Reviews:</strong>
+      <% @car.reviews.each do |review| %>
+      <div class="review-content">
+        <i class ="fa fa-comment"></i> <%= review.content %>
+      </div>
+      <div class="review-stars">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+         <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+      </div>
+      <i class="fas fa-pencil-alt"></i> <%= link_to "Edit Review", edit_review_path(review) %> - <%= link_to "Delete Review", review_path(review), method: "delete" %> <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
