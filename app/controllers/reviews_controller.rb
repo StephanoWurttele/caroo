@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_car
+  before_action :find_car, only: [:new, :create]
 
   def new
     @review = Review.new
@@ -29,8 +29,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review.destroy
-    redirect_to car_path(@car)
+    review = Review.find(params[:id])
+    review.destroy
+    redirect_to car_path(review.car)
   end
 
   private

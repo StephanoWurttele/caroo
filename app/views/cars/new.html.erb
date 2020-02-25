@@ -1,3 +1,4 @@
+
 <%= simple_form_for @car do |f| %>
   <div class="form-inputs col-md-4 offset-md-4">
     <%= f.input :brand, placeholder: 'Brand' %>
@@ -6,5 +7,5 @@
     <%= f.input :price, placeholder: 'Price' %>
     <%= f.input :description, placeholder: 'Tell us a little bit about your car!' %>
     <%= f.submit "Create car!", class: "btn btn-primary" %>
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -1,5 +1,7 @@
 <h1>Booking</h1>
-<h5><%= @booking.car.show %></h5>
-<p><%= @car.price %></p>
+<h5><%= @booking.car.info %></h5>
+<p>Owner: <%= @car.owner %></p>
+<p>Price: £<%= @car.price %></p>
+<p>From :<%= @booking.initial_date %> to <%= @booking.final_date%></p>
 <br></br>
-<%= link_to "See all bookings", bookings_url %>
+<%= link_to "See all bookings", bookings_path %>
