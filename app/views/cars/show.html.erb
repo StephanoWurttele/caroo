@@ -1,0 +1,14 @@
+<h1>Car</h1>
+<h5><%= @car.show %></h5>
+<p><%= @car.price %></p>
+<%= link_to "Rent", car_bookings_url(@car), method: :post %>
+<h2>Reviews</h2>
+<br></br>
+<p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
+  <% @car.reviews.each do |review| %>
+    <h1><%= review.rating %></h1>
+    <p><%= review.content %></p>
+    <%= link_to "Edit a Review", edit_review_path(review) %> - <%= link_to "Delete a Review", review_path(review), method: "delete" %>
+  <% end %>
+
+
