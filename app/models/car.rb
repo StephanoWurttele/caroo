@@ -12,6 +12,11 @@ class Car < ApplicationRecord
   def info
     "#{self.kind.capitalize} #{self.model}. #{self.brand}."
   end
+
+  def owner
+    self.user.username
+  end
+
   include PgSearch
   pg_search_scope :search, against: [:brand, :model], using: {tsearch: {prefix: true, any_word: true}}
 end
