@@ -16,4 +16,7 @@ car2.reviews.create!(rating: 4, content: 'damn good')
 
 user3 = User.create!(username: "MaxV", name: "Stephano", email: "max.v@gmail.com", password:"123456", password_confirmation:"123456")
 car3 = Car.create!(description: "Nice car 3", price: 180, model: Faker::Vehicle.model, kind: "electric", brand: Faker::Vehicle.manufacture, user: user2)
-car2.reviews.create!(rating: 3, content: 'good')
+car3.reviews.create!(rating: 3, content: 'good')
+
+booking1 = Booking.create!(car: car1, user: user2)
+booking2 = Booking.create!(car: car3, user: user1)
