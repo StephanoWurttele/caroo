@@ -1,8 +1,12 @@
 
 <h1>Cars</h1>
+<%= link_to "Create new car", new_car_url %>
+<br>
 <% @cars.each do |car| %>
-    <%= car.show %>
+    <p><%= car.info %></p>
+    <%= car.description %>
     <%= link_to "See more", car_url(car) %>
+    <br></br>
     <br></br>
 <% end %>
 
