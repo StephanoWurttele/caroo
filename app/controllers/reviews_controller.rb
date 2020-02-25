@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @car = Car.find(params[:car_id])
     @review.car = @car
     if @review.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to car_path(@car)
     else
       render :new
     end
@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :rating)
   end
 
 end
