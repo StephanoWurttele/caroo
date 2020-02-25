@@ -6,6 +6,7 @@
     <%= f.input :kind, :collection => @kinds %>
     <%= f.input :price, placeholder: 'Price' %>
     <%= f.input :description, placeholder: 'Tell us a little bit about your car!' %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit "Create car!", class: "btn btn-primary" %>
   <% end %>
 </div>
