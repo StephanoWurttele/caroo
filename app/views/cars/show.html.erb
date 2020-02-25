@@ -1,6 +1,6 @@
 <h1>Car</h1>
 <h5><%= @car.info %></h5>
-<p>Owner: <%= @car.user.name %></p>
+<p>Owner: <%= @car.owner %></p>
 <p>Desc: <%= @car.description %></p>
 <p>Price: <%= @car.price %></p>
 <%= link_to "Rent", car_bookings_url(@car), method: :post %>

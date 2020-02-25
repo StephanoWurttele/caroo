@@ -13,4 +13,7 @@ class Car < ApplicationRecord
     "#{self.kind.capitalize} #{self.model}. #{self.brand}."
   end
 
+  def owner
+    self.user.username
+  end
 end
