@@ -8,6 +8,9 @@ class Car < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
 
+  include PgSearch
+  pg_search_scope :search, against: [:brand, :model], using: {tsearch: {prefix: true, any_word: true}}
+
   def show
     "#{self.kind.capitalize} #{self.model}. #{self.brand}. Owner: #{self.user.username}"
   end
