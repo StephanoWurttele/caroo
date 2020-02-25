@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :cars
   resources :users, only: [:show]
+  resources :bookings
 end

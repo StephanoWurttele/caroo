@@ -1,0 +1,8 @@
+<%= simple_form_for @booking do |f| %>
+
+    <%= f.input :car %>
+    
+    <%= f.input :user, value:current_user %>
+    
+    <%= f.button :submit, class: "btn-primary" %>
+  <% end %>
