@@ -1,3 +1,8 @@
-<%= simple_form_for [@user_car, @booking] do |f| %>    
-    <%= f.button :submit, class: "btn-primary" %>
-  <% end %>
+<%= simple_form_for [@car, @booking] do |f| %>
+  <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date'%>
+  <%= f.input :final_date, readonly: 'true', placeholder: 'End Date' %>
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>
+
+
+

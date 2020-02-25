@@ -1,7 +1,7 @@
 <h1>Car</h1>
 <h5><%= @car.show %></h5>
 <p><%= @car.price %></p>
-<%= link_to "Rent", car_bookings_url(@car), method: :post %>
+<%= link_to "Book", new_car_booking_path(@car) %>
 <h2>Reviews</h2>
 <br></br>
 <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
