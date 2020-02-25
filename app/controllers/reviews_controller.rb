@@ -1,10 +1,5 @@
 class ReviewsController < ApplicationController
 
-  def index
-    @car = Car.find(params[:car_id])
-    @reviews = Review.all
-  end
-
   def new
     @car = Car.find(params[:car_id])
     @review = Review.new
