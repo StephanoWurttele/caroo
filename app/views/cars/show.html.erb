@@ -1,6 +1,7 @@
 <h1>Car</h1>
 <h5><%= @car.info %></h5>
 <p>Owner: <%= @car.owner %></p>
+<%= cl_image_tag(@car.photo.key, height:300, width: 400, crop: :fill) %>
 <p>Desc: <%= @car.description %></p>
 <p>Price: <%= @car.price %></p>
 <%= link_to "Book", new_car_booking_path(@car) %>
