@@ -1,12 +1,12 @@
 <%- if controller_name != 'sessions' %>
 <p class="loginhere col-md-4 offset-md-4">
-  <%= link_to "Have already an account ? Login here", new_session_path(resource_name) %><br />
+  <%= link_to "Have already an account? Login here", new_session_path(resource_name) %><br />
 <% end %>
 </p>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
 <p class="signuphere col-md-4 offset-md-4">
-  <%= link_to "Don't have an account yet?" "Sign up here", new_registration_path(resource_name) %><br />
+  <%= link_to "Don't have an account yet? Sign up here", new_registration_path(resource_name) %><br />
 <% end %>
 </p>
 
