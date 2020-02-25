@@ -2,5 +2,12 @@
 <h5><%= @car.show %></h5>
 <p><%= @car.price %></p>
 <%= link_to "Rent", new_booking_url(@car) %>
-<h2>Reviews</h2>
 <br></br>
+<h2>Reviews</h2>
+<p><%= link_to "Create a Review", new_review_path %><p>
+  <% @cars.reviews.each do |review| %>
+    <h1><%= review.rating %></h1>
+    <p><%= review.content %></p>
+  <% end %>
+
+
