@@ -1,0 +1,5 @@
+<%= simple_form_for [@car, @car.reviews] do |f| %>
+  <%= f.input :rating, placeholder: 'How many stars?' %>
+  <%= f.input :content, placeholder: 'Leave a review' %>
+  <%= f.submit "Edit your review", class: "btn btn-primary" %>
+<% end %>
