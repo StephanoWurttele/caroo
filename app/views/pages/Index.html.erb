@@ -1,6 +1,6 @@
   <h2><strong>Cars List</strong></h2>
   <p><%= link_to "Create Rental Car", new_car_path %><p>
-  <% @Cars.each do |car| %>
+  <% @cars.each do |car| %>
     <h1><%= car.name %></h1>
     <h1><%= car.description %></h1>
     <h1><%= car.price %></h1>

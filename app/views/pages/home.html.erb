@@ -1,3 +1,9 @@
 <h1>Caroo</h1>
 
 <p>View and Search Cars</p>
+
+<%= simple_form_for :search, url: cars_path, method: "GET", html: { class: 'simple_form search' } do |f| %>
+  <%= f.input :brand, input_html: {value: ""} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+  <i class="fas fa-search"></i>
+<% end %>
