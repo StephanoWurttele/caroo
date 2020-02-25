@@ -2,11 +2,14 @@ class CarsController < ApplicationController
   before_action :define_kinds, only: [:edit, :new]
   before_action :get_car, only: [:show, :edit, :update, :destroy]
   def index
-    @cars = Car.all
-    @search = params["search"]
-    if @search.present?
-      @brand = @search[:brand]
-      @cars = Car.where("brand ILIKE ?", @brand)
+    sql_query = " \
+        brand @@ :query \
+        OR model @@ :query \
+      "
+    if params[:query].present?
+      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cars = Car.all
     end
   end
 
