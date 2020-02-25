@@ -1,5 +1,6 @@
-<div class='container' style= >
-  <%= simple_form_for @car do |f| %>
+
+<%= simple_form_for @car do |f| %>
+  <div class="form-inputs col-md-4 offset-md-4">
     <%= f.input :brand, placeholder: 'Brand' %>
     <%= f.input :model, placeholder: 'Model' %>
     <%= f.input :kind, :collection => @kinds %>
