@@ -52,10 +52,24 @@
   padding: 8px 24px;
   border-radius: 4px;
   background: #1EDD88;
-  transition: background 0.3s ease;
+  transition: text 3.0s ease;
 }
 
-.btn-flat:hover {
-  background: #1BCB7F;
+
+.btn-animate {
+  text-decoration: none;
+  text-align: right;
   color: white;
+  margin: 15px;
 }
+
+
+.card-center {
+  border-radius: 15px;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  background:linear-gradient(160deg, white 70%, white, #EA3223, #EA3223 70%);
+}
+
+
