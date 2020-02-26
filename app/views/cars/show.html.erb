@@ -1,44 +1,48 @@
-<h1 class="text-center">Car</h1>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <h5><%= @car.info %></h5>
-      <%= cl_image_tag(@car.photo.key, height:300, width: 400, crop: :fill) %>
-      <p>Owner: <%= @car.user.name %></p>
-      <p>Desc: <%= @car.description %></p>
-      <p>Price: <%= @car.price %>£</p>
-      <%= link_to new_car_booking_path(@car) do%>
-        <p class="btn btn-success">Rent</p>
-        <% end %>
+  <div class="row d-flex justify-content-center pb-40">
+    <div class="col-md-8 pb-40 header-text">
+      <h1 class="text-center pb-40"><%= @car.info %></h1>
     </div>
+  </div>
+<div class="card mb-3">
+  <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= cl_image_tag(@car.photo.key, height:300, width: 400, crop: :fill) %>
+      </div>
+
+      <div class="col col-md-8">
+        <div class="card-body ml-5">
+          <div class="card-title justify-content-between d-flex">
+            <h4><%= @car.info %></h4>
+            <h2><%= @car.price %>£ / day</h2>
+          </div>
+
+          <p class="card-text">Owner: <%= @car.user.name %></p>
+          <p class="card-text">Desc: <%= @car.description %></p>
+          <p class="btn btn-success"><%= link_to "Rent", car_bookings_url(@car), method: :post %></p>
+        </div>
+      </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <strong>Reviews:</strong>
-      <% if user_signed_in? %>
-        <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
-      <% end %>
+  <div class="card bg-light mb-3">
+    <div class="card-header"><strong>Reviews:</strong></div>
       <% @car.reviews.each do |review| %>
-        <div class="review-content">
-          <i class ="fa fa-comment"></i> <%= review.content %>
+        <div class="card-text">
+          <i class ="far fa-comments"></i> <%= review.content %>
         </div>
         <div class="review-stars">
           <% review.rating.times do %>
             <i class="fas fa-star"></i>
           <% end %>
-        <% (5 - review.rating).times do %>
-          <i class="far fa-star"></i>
-        <% end %>
-        </div>
-        <% if (review.car.user == current_user) %>
-        <i class="fas fa-pencil-alt"></i>
-        <%= link_to "Edit my review", edit_review_path(review) %> - <%= link_to "Delete my review", review_path(review), method: "delete" %>
-        <i class="fas fa-trash"></i>
-        <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+      </div>
+          <i class="fas fa-pencil-alt"></i>
+          <% if (review.car.user == current_user) %>
+        <%= link_to "Edit my review", edit_review_path(review) %> - <%= link_to "Delete my review", review_path(review), method: "delete" %> <i class="fas fa-trash"></i>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
