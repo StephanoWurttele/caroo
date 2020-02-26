@@ -1,12 +1,14 @@
-<div class="flex-container">
-  <%= image_tag "caroo_logo.png", class: "banner" %>
+<div id="home_page">
+  <div class="flex-container ">
+    <%= image_tag "caroo_logo.png", class: "banner" %>
 
-  <%= form_tag cars_path, method: :get, class:"search-form" do  %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "search-input",
-      placeholder: "Find brand or model"
-    %>
-  <% end %>
+    <%= form_tag cars_path, method: :get, class:"search-form" do  %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-input",
+        placeholder: "Find brand or model.."
+      %>
+    <% end %>
+  </div>
 </div>
 
