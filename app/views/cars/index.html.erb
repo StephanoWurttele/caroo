@@ -6,7 +6,7 @@
 <br>
 <% @cars.each do |car| %>
     <div class="card-product">
-      <%= image_tag "car_test_2.jpg" %>
+      <%= cl_image_tag(car.photo.key) %>
       <div class="card-product-infos">
         <h2><%= car.description %></h2>
         <p><%= car.info %></p>

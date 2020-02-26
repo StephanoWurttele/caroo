@@ -2,14 +2,28 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(128, 110, 110, 0.2);
   display: flex;
   align-items: center;
 }
 
+.card-product.bookings-element {
+  margin: 5% 0;
+  height: 188px;
+}
+
+.bookings-element h5{
+  font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
+  font-size: 30px;
+}
+
+.book-info{
+  padding: 0 5%;
+}
+
 .card-product img {
-  height: 100%;
-  width: 120px;
+  height: auto;
+  width: 250px;
   object-fit: cover;
 }
 
