@@ -1,22 +1,24 @@
-
-<h1 class="text-center">Our cars</h1>
-<div class="text-center">
-  <%= link_to "Create new car", new_car_url %>
-</div>
-<br>
-<% @cars.each do |car| %>
-    <div class="card-product">
-      <%= cl_image_tag(car.photo.key) %>
-      <div class="card-product-infos">
-        <h2><%= car.description %></h2>
-        <p><%= car.info %></p>
-        <div>
-          <%= link_to "See more", car_url(car), class: "btn btn-flat" %>
+<div class="container">
+  <h1 class="text-center">Our cars</h1>
+  <div class="text-center">
+    <%= link_to "Create new car", new_car_url %>
+  </div>
+  <br>
+  <% @cars.each do |car| %>
+      <div class="card-product bookings-element">
+        <%= cl_image_tag car.photo.key, class: "image-card" %>
+        <div class="card-product-infos ">
+          <div>
+            <h2><%= car.description %></h2>
+            <p><%= car.info %></p>
+            </br>
+            </br>
+          </div>
+          <div>
+            <%= link_to "See more", car_url(car), class: "btn-flat" %>
+          </div>
         </div>
       </div>
-    </div>
-    <br></br>
-    <br></br>
-<% end %>
+  <% end %>
 
-
+  </div>
