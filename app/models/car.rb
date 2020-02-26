@@ -11,7 +11,7 @@ class Car < ApplicationRecord
   validates :description, presence: true
 
   def info
-    "#{self.kind.capitalize} #{self.model}. #{self.brand}."
+    "#{self.brand.capitalize} #{self.model}, #{self.kind.downcase}."
   end
 
   def owner
