@@ -1,8 +1,14 @@
-<h1>Bookings</h1>
-<% @bookings.each do |booking| %>
-    <h5><%= booking.car.info %></h5>
-    <p>Owner: <%= booking.car.owner %></p>
-    <p>Price: £<%= booking.car.price %></p>
-    <%= link_to "See more", booking_url(booking) %>
-    <br></br>
-<% end %>
+<div class="container">
+    <h1 class="text-center">Bookings</h1>
+    <% @bookings.each do |booking| %>
+        <div class="bookings-element card-product">
+            <%= cl_image_tag(booking.car.photo.key, height:150, width: 200, crop: :fill) %>
+            <div class="book-info">
+                <h5><%= booking.car.info %></h5>
+                <p>Owner: <%= booking.car.owner %></p>
+                <p>From :<%= booking.initial_date %> to <%= booking.final_date%></p>
+                <p><%= link_to "See more", booking_url(booking) %></p>
+            </div>
+        </div>
+    <% end %>
+</div>
