@@ -26,7 +26,12 @@
 </div>
 
   <div class="card bg-light mb-3">
-    <div class="card-header"><strong>Reviews:</strong></div>
+    <div class="card-header">
+      <p><strong>Reviews:</strong></p>
+      <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
+    </div>
+    <% if user_signed_in? %>
+      <% end %>
       <% @car.reviews.each do |review| %>
         <div class="card-text">
           <i class ="far fa-comments"></i> <%= review.content %>
@@ -39,9 +44,10 @@
             <i class="far fa-star"></i>
           <% end %>
       </div>
-          <i class="fas fa-pencil-alt"></i>
           <% if (review.car.user == current_user) %>
-        <%= link_to "Edit my review", edit_review_path(review) %> - <%= link_to "Delete my review", review_path(review), method: "delete" %> <i class="fas fa-trash"></i>
+          <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
+          <br>
+          <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
       <% end %>
     <% end %>
   </div>
