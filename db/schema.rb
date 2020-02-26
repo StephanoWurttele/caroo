@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_211525) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
-    t.datetime "initial_date"
-    t.datetime "final_date"
+    t.date "initial_date"
+    t.date "final_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["car_id"], name: "index_bookings_on_car_id"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_211525) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
-    t.boolean "owner", default: false
+    t.boolean "owner"
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
