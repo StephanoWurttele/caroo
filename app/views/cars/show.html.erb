@@ -30,7 +30,9 @@
   <div class="card bg-light mb-3">
     <div class="card-header">
       <p><strong>Reviews:</strong></p>
+      <% if user_signed_in? %>
       <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
+      <% end %>
     </div>
     <% if user_signed_in? %>
       <% end %>

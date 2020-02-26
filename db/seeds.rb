@@ -53,5 +53,5 @@ car7 = Car.create!(description: "Porsche Panamera, black, automatic", price: 200
 car7.photo.attach(io: vehicle_7, filename: 'vehicle_7.png', content_type: 'image/jpg')
 car7.reviews.create!(rating: 5, content: 'The car of my dreams,glad i could drive it')
 
-booking1 = Booking.create!(car: car1, user: user2)
-booking2 = Booking.create!(car: car3, user: user1)
+booking1 = Booking.create!(car: car1, user: user2, initial_date: DateTime.now.to_date, final_date: DateTime.now.to_date)
+booking2 = Booking.create!(car: car3, user: user1, initial_date: DateTime.now.to_date, final_date: DateTime.now.to_date)
