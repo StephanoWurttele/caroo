@@ -30,7 +30,9 @@
   <div class="card bg-light mb-3">
     <div class="card-header">
       <p><strong>Reviews:</strong></p>
+      <% if user_signed_in? %>
       <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
+      <% end %>
     </div>
     <% if user_signed_in? %>
       <% end %>
@@ -40,10 +42,10 @@
         </div>
         <div class="review-stars">
           <% review.rating.times do %>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star yellow"></i>
           <% end %>
           <% (5 - review.rating).times do %>
-            <i class="far fa-star"></i>
+            <i class="far fa-star yellow"></i>
           <% end %>
       </div>
           <% if (review.car.user == current_user) %>
