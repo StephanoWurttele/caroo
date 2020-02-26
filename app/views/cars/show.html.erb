@@ -1,4 +1,4 @@
-<h1 class="text-center">Car</h1>
+<h1 class="text-center"><%= @car.info %></h1>
 <div class="container">
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -6,7 +6,7 @@
       <%= cl_image_tag(@car.photo.key, height:300, width: 400, crop: :fill) %>
       <p>Owner: <%= @car.user.name %></p>
       <p>Desc: <%= @car.description %></p>
-      <p>Price: <%= @car.price %>£</p>
+      <p>Price: <%= @car.price %>£ / day</p>
       <p class="btn btn-success"><%= link_to "Rent", car_bookings_url(@car), method: :post %></p>
     </div>
   </div>
