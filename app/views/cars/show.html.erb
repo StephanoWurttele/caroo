@@ -28,9 +28,10 @@
           <i class="far fa-star"></i>
         <% end %>
         </div>
-        <i class="fas fa-pencil-alt"></i>
         <% if (review.car.user == current_user) %>
-          <%= link_to "Edit my review", edit_review_path(review) %> - <%= link_to "Delete my review", review_path(review), method: "delete" %> <i class="fas fa-trash"></i>
+        <i class="fas fa-pencil-alt"></i>
+        <%= link_to "Edit my review", edit_review_path(review) %> - <%= link_to "Delete my review", review_path(review), method: "delete" %> 
+        <i class="fas fa-trash"></i>
         <% end %>
       <% end %>
     </div>
