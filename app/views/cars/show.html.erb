@@ -6,13 +6,8 @@
       <%= cl_image_tag(@car.photo.key, height:300, width: 400, crop: :fill) %>
       <p>Owner: <%= @car.user.name %></p>
       <p>Desc: <%= @car.description %></p>
-<<<<<<< HEAD
       <p>Price: <%= @car.price %>£</p>
       <p class="btn btn-success"><%= link_to "Rent", new_car_booking_path(@car)%></p>
-=======
-      <p>Price: <%= @car.price %>£ / day</p>
-      <p class="btn btn-success"><%= link_to "Rent", car_bookings_url(@car), method: :post %></p>
->>>>>>> 706986d299fb7dec1d537f8c28cd3930944e303a
     </div>
   </div>
 </div>
