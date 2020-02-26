@@ -17,7 +17,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # raise
     @car = Car.find(params[:car_id])
     booking = Booking.new(booking_params)
     booking.car = @car
