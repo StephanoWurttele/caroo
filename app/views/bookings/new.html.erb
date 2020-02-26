@@ -1,8 +1,10 @@
 <%= simple_form_for [@car, @booking] do |f| %>
+<div class="form-inputs col-md-4 offset-md-4">
   <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date'%>
   <%= f.input :final_date, readonly: 'true', placeholder: 'End Date' %>
   <%= f.button :submit, class: "btn-primary" %>
 <% end %>
+</div>
 
 
 
