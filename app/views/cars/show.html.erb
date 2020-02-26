@@ -7,7 +7,7 @@
       <p>Owner: <%= @car.user.name %></p>
       <p>Desc: <%= @car.description %></p>
       <p>Price: <%= @car.price %>£</p>
-      <p class="btn btn-success"><%= link_to "Rent", car_bookings_url(@car), method: :post %></p>
+      <p class="btn btn-success"><%= link_to "Rent", new_car_booking_path(@car)%></p>
     </div>
   </div>
 </div>
