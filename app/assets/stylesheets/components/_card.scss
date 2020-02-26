@@ -22,7 +22,7 @@
 }
 
 .card-product img {
-  height: auto;
+  height: 100%;
   width: 250px;
   object-fit: cover;
 }
@@ -46,7 +46,6 @@
   display: grid;
   text-content: left;
 }
-
 .btn-flat {
   color: white;
   padding: 8px 24px;
@@ -54,16 +53,12 @@
   background: #1EDD88;
   transition: text 3.0s ease;
 }
-
-
 .btn-animate {
   text-decoration: none;
   text-align: right;
   color: white;
   margin: 15px;
 }
-
-
 .card-center {
   border-radius: 15px;
   margin: 0 auto; /* Added */
@@ -71,5 +66,6 @@
   margin-bottom: 10px; /* Added */
   background:linear-gradient(160deg, white 70%, white, #EA3223, #EA3223 70%);
 }
-
-
+.card-header p{
+  margin-bottom: 5px;
+}
