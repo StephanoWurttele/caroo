@@ -2,10 +2,18 @@
 <h1>Cars</h1>
 <br>
 <% @cars.each do |car| %>
-    <p><%= car.info %></p>
-    <%= car.description %>
-    <%= link_to "See more", car_url(car) %>
+    <div class="card-product">
+      <%= image_tag "car_test_2.jpg" %>
+      <div class="card-product-infos">
+        <h2><%= car.description %></h2>
+        <p><%= car.info %></p>
+        <div>
+          <%= link_to "See more", car_url(car), class: "btn btn-flat" %>
+        </div>
+      </div>
+    </div>
     <br></br>
     <br></br>
 <% end %>
+
 
