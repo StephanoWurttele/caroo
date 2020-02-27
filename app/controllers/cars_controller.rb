@@ -2,9 +2,9 @@ class CarsController < ApplicationController
   before_action :define_arrays, only: [:edit, :new]
   before_action :get_car, only: [:show, :edit, :update, :destroy]
   def index
-    @cars = Car.ApplicationController
-    
+    @cars = Car.all
     if params[:brand].present? || params[:model].present? || params[:doors].present? || params[:year].present?
+      raise
       if params[:transmission] == "Any" && params[:kind] == "Any"
         @cars = Car.search_by_not_both("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]}")
       elsif params[:transmission] == "Any"
@@ -15,9 +15,9 @@ class CarsController < ApplicationController
         @cars = Car.search_by_everything("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:transmission]} #{params[:kind]}")
       end
     elsif params[:transmission] != "Any" || params[:kind] != "Any"
-      if params[:kind] != "Any"
+      if params[:kind].present? && params[:kind] != "Any"
         @cars = Car.search_by_not_transmission("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:kind]}")
-      elsif params[:transmission] != "Any"
+      elsif params[:transmission].present? && params[:transmission] != "Any"
         @cars = Car.search_by_not_kind("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:transmission]}")
       end
     end
