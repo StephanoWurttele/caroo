@@ -24,7 +24,6 @@ require("channels")
 
 import "bootstrap";
 if (document.getElementById('booking-form')){
-    console.log("A");
     const dates = document.querySelectorAll('.form-inputs .form-group');
     const price = document.querySelector('#price');
     const rent = document.getElementById("hidden");
@@ -43,7 +42,6 @@ if (document.getElementById('booking-form')){
             let finalprice = (days+1)*dayprice
             price.innerHTML = `Total price: ${finalprice} £`;
             rent.value = finalprice;
-            console.log("a")
         });
     });
 }
