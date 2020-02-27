@@ -14,6 +14,17 @@ class CarsController < ApplicationController
   end
 
   def show
+    @can_review = ->{ 
+      return false unless signed_in?
+      bookings = Booking.where(user: current_user);
+      if bookings
+        bookings.each do |booking|
+          return true if booking.final_date < DateTime.now.to_date
+        end
+      end
+      false
+    }.call
+
   end
 
   def new

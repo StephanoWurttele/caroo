@@ -5,18 +5,22 @@
   flex-direction: column;
   justify-content: left;
   align-items: center;
-  background:linear-gradient(160deg, #ff0000, #ff0000, 60%, white 60%, white);
+  background-image: url(asset_path('home_background.jpg'));
+  background-size: cover;
+  // background:linear-gradient(160deg, #ff0000, #ff0000, 60%, white 60%, white);
   opacity: 0.9;
 }
 
 .banner {
-  width: 40%;
-  height: 40%;
+  width: 30%;
+  height: 30%;
+  margin-left: 30px;
 }
 
 .search-form {
   width:30%;
   margin-top: 20px;
+  margin-left: 30px;
 }
 
 .search-input {
@@ -39,3 +43,7 @@
  .yellow {
   color: #e4e814;
  }
+
+#home-page {
+  // background-image: url( 'home_background.jpg');
+}
