@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @kinds = ['Petrol', 'Diesel', 'Electric', 'Hybrid']
-    @trans = ['Manual', 'automatic']
+    @trans = ['Manual', 'Automatic']
   end
 
   def about

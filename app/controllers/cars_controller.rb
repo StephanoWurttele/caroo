@@ -75,7 +75,7 @@ class CarsController < ApplicationController
 
   def define_arrays
     @kinds = ['Petrol', 'Diesel', 'Electric', 'Hybrid']
-    @trans = ['Manual', 'automatic']
+    @trans = ['Manual', 'Automatic']
 
 
   end
