@@ -3,8 +3,11 @@
 <div class="form-inputs col-md-4 offset-md-4">
     <%= f.input :brand, placeholder: 'Brand' %>
     <%= f.input :model, placeholder: 'Model' %>
-    <%= f.input :kind, :collection => @kinds %>
+    <%= f.input :kind, collection: @kinds %>
     <%= f.input :price, placeholder: 'Price' %>
+    <%= f.input :transmission, collection: @trans %>
+    <%= f.input :doors, placeholder: 'Doors' %>
+    <%= f.input :year, placeholder: 'Year' %>
     <%= f.input :description, placeholder: 'Tell us a little bit about your car!' %>
     <%= f.input :photo, as: :file %>
     <%= f.submit "Create car!", class: "btn btn-primary" %>

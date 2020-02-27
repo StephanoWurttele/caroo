@@ -13,6 +13,32 @@
         class: "search-input",
         placeholder: "Find model.."
       %>
+      <%= text_field_tag :doors,
+        nil,
+        class: "search-input",
+        placeholder: "Number of doors.."
+      %>
+      <%= text_field_tag :year,
+        nil,
+        class: "search-input",
+        placeholder: "Year..."
+      %>
+      
+      <select id="kind" name="kind" class="search-input">
+        <option value="Any">Any</option>
+        <option value="Hybrid">Hybrid</option>  
+        <option value="Electric">Electric</option>
+        <option value="Petrol">Petrol</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Hybrid">Hybrid</option>
+      </select>
+
+      <select id="transmission" name="transmission" class="search-input">
+        <option value="Any">Any</option>
+        <option value="Manual">Manual</option>
+        <option value="Automatic">Automatic</option>
+      </select>
+
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
