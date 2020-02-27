@@ -23,6 +23,9 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car = Car.find(params[:id])
+    @booking = Booking.new
+
     @can_review = ->{
       return false unless signed_in?
       bookings = Booking.where(user: current_user);
@@ -41,6 +44,7 @@ class CarsController < ApplicationController
   end
 
   def create
+
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save!

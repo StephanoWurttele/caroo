@@ -6,7 +6,7 @@
             <div class="book-info">
                 <h5><%= booking.car.info %></h5>
                 <p>Owner: <%= booking.car.owner %></p>
-                <p>From :<%= booking.initial_date %> to <%= booking.final_date%></p>
+                <p>From :<%= booking.initial_date.strftime("%B %d, %Y") %> to <%= booking.final_date.strftime("%B %d, %Y") %></p>
                 <p><%= link_to "See more", booking_url(booking) %></p>
             </div>
         </div>

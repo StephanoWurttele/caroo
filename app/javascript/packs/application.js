@@ -23,3 +23,25 @@ require("channels")
 // ----------------------------------------------------
 
 import "bootstrap";
+if (document.getElementById('booking-form')){
+    const dates = document.querySelectorAll('.form-inputs .form-group');
+    const price = document.querySelector('#price');
+    const rent = document.getElementById("hidden");
+    dates.forEach((field) => {
+        field.addEventListener('click', (event) => {
+            const dayprice = parseInt(price.dataset.price);
+            let startyear = document.querySelector('#booking_initial_date_1i').selectedOptions[0].innerHTML
+            let startmonth = document.querySelector('#booking_initial_date_2i').selectedOptions[0].innerHTML
+            let startday = document.querySelector('#booking_initial_date_3i').selectedOptions[0].innerHTML
+            let startdate = new Date(`${startyear}-${startmonth}-${startday}`);
+            let endyear = document.querySelector('#booking_final_date_1i').selectedOptions[0].innerHTML
+            let endmonth = document.querySelector('#booking_final_date_2i').selectedOptions[0].innerHTML
+            let endday = document.querySelector('#booking_final_date_3i').selectedOptions[0].innerHTML
+            let enddate = new Date(`${endyear}-${endmonth}-${endday}`);
+            let days = (enddate-startdate)/(1000 * 3600 * 24);
+            let finalprice = (days+1)*dayprice
+            price.innerHTML = `Total price: ${finalprice} £`;
+            rent.value = finalprice;
+        });
+    });
+}
