@@ -1,22 +1,31 @@
 <div class="container">
   <h1 class="text-center">Our cars</h1>
-  <div class="text-center">
-  </div>
-  <% @cars.each do |car| %>
-      <div class="card-product bookings-element">
-        <%= cl_image_tag car.photo.key, class: "image-card" %>
-        <div class="card-product-infos ">
-          <div>
-            <h2><%= car.description %></h2>
-            <p><%= car.info %></p>
-            </br>
-            </br>
+  <div class="text-center car-grid">
+    <% @cars.each do |car| %>
+      <div class='index-card'>
+        <div class='index-card-top' style= "background-image: url('<%= cl_image_path(car.photo.key, height:300, width:400, crop: :fill); %>')">
+          <div class="background-image">
+            <div class='background-image-safety'></div>
+            <div class='adding-angle'>
+              <svg class='index-angle' viewBox='0 0 235 25' preserveAspectRation='xMinYMax slice'>
+                <polygon points="235 0 235 25 0 25"></polygon>
+              </svg>
+            </div>
           </div>
-          <div>
-            <%= link_to "See more", car_url(car), class: "btn-flat" %>
+        </div>
+        <div class='car-info text-center'>
+          <div class="flex-grow-1">
+            <h4 class='car-title'><%= car.brand %> <%= car.model %></h4>
+            <p class='car-detail'><%= car.description %></p>
+          </div>
+          <div class="positioning">
+            <button type="button" class='click-dark mb-3'><%= link_to "See more", car_url(car), class:"white-text"%></button>
+            <p class='car-detail'>£<%= car.price %> / day</p>
           </div>
         </div>
       </div>
-  <% end %>
-
+    <% end %>
   </div>
+</div>
+
+
