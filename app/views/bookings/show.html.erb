@@ -1,4 +1,3 @@
-
 <h1 class='text-center m-3'>Booking</h1>
 <div class="card-center mb-3" style="max-width: 1080px;">
   <div class="row no-gutters">
@@ -9,7 +8,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= @booking.car.info %></h5>
         <p class="card-text">Owner: <strong><%= @car.owner %></strong></p>
-        <p class="card-title">From :<%= @booking.initial_date %> to <%= @booking.final_date%></p>
+        <p class="card-title">From: <%= @booking.initial_date.strftime("%B %d, %Y") %> to <%= @booking.final_date.strftime("%B %d, %Y") %></p>
         <p class="card-text"><small class="text-muted">Price: £<%= @car.price %></small></p>
         <div class="d-flex justify-content-between">
           <%= link_to "See car page", car_path(@booking.car) %>
@@ -19,4 +18,3 @@
     </div>
   </div>
 </div>
-

@@ -16,12 +16,15 @@
             <h4><%= @car.info %></h4>
             <h2><%= @car.price%>£ / day</h2>
           </div>
-
           <p class="card-text">Owner: <%= @car.user.name %></p>
           <p class="card-text">Desc: <%= @car.description %></p>
-          <%= link_to new_car_booking_path(@car) do%>
-            <p class="btn btn-success">Rent</p>
-          <% end %>
+            <%= simple_form_for [@car, @booking] do |f| %>
+            <div class="form-inputs col-md-4 offset-md-4">
+              <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date'%>
+              <%= f.input :final_date, readonly: 'true', placeholder: 'End Date' %>
+              <%= f.button :submit, class: "btn-primary" %>
+            <% end %>
+            </div>
           </div>
       </div>
   </div>
