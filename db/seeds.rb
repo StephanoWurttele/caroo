@@ -15,6 +15,7 @@ profile_pic3 = URI.open('https://cdn.guidingtech.com/media/assets/WordPress-Impo
 
 user1 = User.create!(username: "stephanoFW", name: "Stephano", email: "stephanoFW@gmail.com", password:"123456", password_confirmation:"123456")
 user1.photo.attach(io: profile_pic1, filename: 'pp1.png', content_type: 'image/png')
+
 car1 = Car.create!(description: "This car is lovely to drive and has all the bells and whistles whilst being eco-friendly and exceptionally cheap to run", price: 160,  year: 2018, doors: 5, transmission: "manual", seats: 5, model: Faker::Vehicle.model, kind: "Electric", brand: Faker::Vehicle.manufacture, user: user1)
 car1.photo.attach(io: vehicle_1, filename: 'vehicle_1.png', content_type: 'image/jpg')
 car4 = Car.create!(description: "This vehicle is stunning inside and out, showcasing the most contemporary technology in Audi's tool chest", price: 150, year: 2017, doors: 5, transmission: "automatic", seats: 5, model: "A8", kind: "Petrol", brand: "Audi", user: user1)
