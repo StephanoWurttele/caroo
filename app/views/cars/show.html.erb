@@ -4,16 +4,16 @@
       <h1 class="text-center pb-40"><%= @car.info %></h1>
     </div>
   </div>
-<div class="card mb-3">
-  <div class="row no-gutters">
+  <div class="card mb-3">
+    <div class="d-flex no-gutters">
       <div class="col-md-4">
-        <%= cl_image_tag(@car.photo.key, height:300, width: 400, crop: :fill) %>
+        <%= cl_image_tag(@car.photo.key, height:250, width: 300, crop: :fill) %>
       </div>
 
       <div class="col col-md-8">
-        <div class="card-body ml-5">
+        <div class="card-body">
           <div class="card-title justify-content-between d-flex">
-            <h4><%= @car.info %></h4>
+            <h1><%= @car.brand %> <%= @car.model %></h1>
             <h2><%= @car.price%>£ / day</h2>
           </div>
 
@@ -37,23 +37,34 @@
     <% if user_signed_in? %>
       <% end %>
       <% @car.reviews.each do |review| %>
-        <div class="review">
-          <div class="card-text">
-            <i class ="far fa-comments"></i> <%= review.content %>
-          </div>
-          <div class="review-stars">
-            <% review.rating.times do %>
-              <i class="fas fa-star yellow"></i>
-            <% end %>
-            <% (5 - review.rating).times do %>
-              <i class="far fa-star yellow"></i>
+        <div class="review d-flex border-top">
+          <div class="review-picture border-right d-flex align-item-center justify-content-center">
+            <% if review.user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar review-image" %>
+            <% else %>
+              <%= image_tag "pp.png", class: "avatar review-image"%>
             <% end %>
           </div>
-          <% if (review.user == current_user) %>
-            <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
-            <br>
-            <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
-          <% end %>
+          <div class="review-content flex-grow-1">
+            <div class="card-text">
+              <i class ="far fa-comments"></i> <%= review.content %>
+            </div>
+            <div class="review-stars">
+              <% review.rating.times do %>
+                <i class="fas fa-star yellow"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="far fa-star yellow"></i>
+              <% end %>
+            </div>
+          </div>
+          <div class="review-options">
+            <% if (review.user == current_user) %>
+              <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
+              <br>
+              <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
+            <% end %>
+          </div>
         </div>
     <% end %>
   </div>
