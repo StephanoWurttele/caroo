@@ -1,15 +1,25 @@
 class CarsController < ApplicationController
-  before_action :define_kinds, only: [:edit, :new]
+  before_action :define_arrays, only: [:edit, :new]
   before_action :get_car, only: [:show, :edit, :update, :destroy]
   def index
-    sql_query = " \
-        brand @@ :query \
-        OR model @@ :query \
-      "
-    if params[:query].present?
-      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @cars = Car.all
+    @cars = Car.all
+    if params[:brand].present? || params[:model].present? || params[:doors].present? || params[:year].present?
+      raise
+      if params[:transmission] == "Any" && params[:kind] == "Any"
+        @cars = Car.search_by_not_both("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]}")
+      elsif params[:transmission] == "Any"
+          @cars = Car.search_by_not_transmission("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:kind]}")
+      elsif params[:kind] == "Any"
+        @cars = Car.search_by_not_kind("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:transmission]}")
+      else
+        @cars = Car.search_by_everything("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:transmission]} #{params[:kind]}")
+      end
+    elsif params[:transmission] != "Any" || params[:kind] != "Any"
+      if params[:kind].present? && params[:kind] != "Any"
+        @cars = Car.search_by_not_transmission("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:kind]}")
+      elsif params[:transmission].present? && params[:transmission] != "Any"
+        @cars = Car.search_by_not_kind("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]} #{params[:transmission]}")
+      end
     end
   end
 
@@ -60,8 +70,11 @@ class CarsController < ApplicationController
     params.require(:car).permit(:description, :price, :model, :kind, :brand, :photo)
   end
 
-  def define_kinds
+  def define_arrays
     @kinds = ['Petrol', 'Diesel', 'Electric', 'Hybrid']
+    @trans = ['Manual', 'automatic']
+
+  
   end
 
   def get_car
