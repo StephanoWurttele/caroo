@@ -38,8 +38,8 @@ car6.photo.attach(io: vehicle_6, filename: 'vehicle_6.png', content_type: 'image
 car7 = Car.create!(description: "Porsche Panamera, black, automatic", price: 200,  year: 2018, doors: 5, transmission: "automatic", seats: 5, model: "Panamera", kind: "Hybrid", brand: "Porsche", user: user2)
 car7.photo.attach(io: vehicle_7, filename: 'vehicle_7.png', content_type: 'image/jpg')
 
-booking1 = Booking.create!(car: car1, user: user2, initial_date: DateTime.now, final_date: DateTime.now.to_date)
-booking2 = Booking.create!(car: car3, user: user1, initial_date: DateTime.now, final_date: DateTime.now.to_date)
+booking1 = Booking.create!(car: car1, user: user2, initial_date: DateTime.now, final_date: DateTime.now.to_date, price: 150)
+booking2 = Booking.create!(car: car3, user: user1, initial_date: DateTime.now, final_date: DateTime.now.to_date, price: 150)
 
 user4 = User.create!(username: "test", name: "testy", email: "test@test.com", password: "123456", password_confirmation: "123456")
 car1.reviews.create!(user: user4, rating: 5, content: 'Pretty damn good')

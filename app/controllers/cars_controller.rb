@@ -34,6 +34,7 @@ class CarsController < ApplicationController
   end
 
   def create
+
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save!

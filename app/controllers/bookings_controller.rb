@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     booking = Booking.new(booking_params)
     booking.car = @car
     booking.user = current_user
+    booking.price = params[:booking][:totalprice].to_i
     if booking.save!
       redirect_to booking_path(booking)
     else
