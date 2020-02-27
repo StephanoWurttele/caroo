@@ -7,7 +7,6 @@
   align-items: center;
   background-image: url(asset_path('home_background.jpg'));
   background-size: cover;
-  // background:linear-gradient(160deg, #ff0000, #ff0000, 60%, white 60%, white);
   opacity: 0.9;
 }
 
@@ -25,11 +24,12 @@
 
 .search-input {
   width: 100%;
-  height: 100%;
+  height: 40px;
   text-align: center;
   border: 0 none;
   color: #777;
-  padding: 6px 15px 6px 35px;
+  padding: 6px 15px 0 35px;
+  margin: 10px 0;
 }
 
 .search-form-control {
@@ -43,10 +43,6 @@
  .yellow {
   color: #e4e814;
  }
-
-#home-page {
-  // background-image: url( 'home_background.jpg');
-}
 
 .text-center {
   font-family: Oxanium;
