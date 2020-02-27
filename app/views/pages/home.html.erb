@@ -3,11 +3,17 @@
     <%= image_tag "caroo_logo.png", class: "banner" %>
 
     <%= form_tag cars_url, method: :get, class:"search-form" do  %>
-      <%= text_field_tag :query,
-        params[:query],
+      <%= text_field_tag :brand,
+        nil,
         class: "search-input",
-        placeholder: "Find brand or model.."
+        placeholder: "Find brand.."
       %>
+      <%= text_field_tag :model,
+        nil,
+        class: "search-input",
+        placeholder: "Find model.."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
