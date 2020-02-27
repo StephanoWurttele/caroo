@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row d-flex justify-content-center pb-40">
+  <div class="row d-flex justify-content-center py-4">
     <div class="col-md-8 pb-40 header-text">
       <h1 class="text-center pb-40"><%= @car.info %></h1>
     </div>
@@ -14,7 +14,7 @@
         <div class="card-body ml-5">
           <div class="card-title justify-content-between d-flex">
             <h4><%= @car.info %></h4>
-            <h2><%= @car.price %>£ / day</h2>
+            <h2><%= @car.price%>£ / day</h2>
           </div>
 
           <p class="card-text">Owner: <%= @car.user.name %></p>

@@ -11,6 +11,8 @@ gem 'cloudinary', '~> 1.12.0'
 #Seeds
 gem 'faker'
 
+gem 'pundit'
+
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
