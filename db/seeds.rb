@@ -20,7 +20,7 @@ profile_pic1 = URI.open('https://cdn.guidingtech.com/media/assets/WordPress-Impo
 profile_pic2 = URI.open('https://cdn2.f-cdn.com/contestentries/1376995/30494909/5b5e3e75ab981_thumb900.jpg')
 profile_pic3 = URI.open('https://cdn.guidingtech.com/media/assets/WordPress-Import/2012/10/Smiley-Thumbnail.png')
 
-user1 = User.create!(username: "stephanoFW", name: "Stephano", email: "stephanoFW@gmail.com", password:"123456", password_confirmation:"123456")
+user1 = User.create!(username: "stephanoFW", name: "Stephano", email: "stephanoFW@gmail.com", password:"123456", password_confirmation:"123456", address: '16 Villa Gaudelet, Paris')
 user1.photo.attach(io: profile_pic1, filename: 'pp1.png', content_type: 'image/png')
 car1 = Car.create!(description: "Electric car,nice specs", price: 160, model: Faker::Vehicle.model, kind: "Electric", brand: Faker::Vehicle.manufacture, user: user1)
 car1.photo.attach(io: vehicle_1, filename: 'vehicle_1.png', content_type: 'image/jpg')
@@ -29,7 +29,7 @@ car4 = Car.create!(description: "Audi A8 white,automatic", price: 150, model: "A
 car4.photo.attach(io: vehicle_4, filename: 'vehicle_4.png', content_type: 'image/jpg')
 car4.reviews.create!(rating: 5, content: 'Lovely car,will book again in future')
 
-user2 = User.create!(username: "MaxD", name: "Max", email: "max.t.denton@gmail.com", password:"123456", password_confirmation:"123456")
+user2 = User.create!(username: "MaxD", name: "Max", email: "max.t.denton@gmail.com", password:"123456", password_confirmation:"123456", address: 'SW6 6DX, London')
 user2.photo.attach(io: profile_pic2, filename: 'pp2.png', content_type: 'image/jpg')
 car2 = Car.create!(description: "Electric car, blue", price: 170, model: Faker::Vehicle.model, kind: "Electric", brand: Faker::Vehicle.manufacture, user: user1)
 car2.photo.attach(io: vehicle_2, filename: 'vehicle_2.png', content_type: 'image/jpg')
@@ -41,7 +41,7 @@ car8 = Car.create!(description: "BMW M3, blue, sport, automatic", price: 220, mo
 car8.photo.attach(io: vehicle_8, filename: 'vehicle_8.png', content_type: 'image/jpg')
 car8.reviews.create!(rating: 5, content: 'Awesome car,,,loved it')
 
-user3 = User.create!(username: "MaxV", name: "Stephano", email: "max.v@gmail.com", password:"123456", password_confirmation:"123456")
+user3 = User.create!(username: "MaxV", name: "Stephano", email: "max.v@gmail.com", password:"123456", password_confirmation:"123456", address: "Shoreditch Stables, North, 138 Kingsland Rd, London E2 8DY")
 user3.photo.attach(io: profile_pic3, filename: 'pp3.png', content_type: 'image/png')
 car3 = Car.create!(description: "Environmently friendly car for rent", price: 180, model: Faker::Vehicle.model, kind: "Electric", brand: Faker::Vehicle.manufacture, user: user2)
 car3.photo.attach(io: vehicle_3, filename: 'vehicle_3.png', content_type: 'image/jpg')

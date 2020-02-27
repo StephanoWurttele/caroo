@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   has_many :cars
   has_many :bookings, through: :cars
   has_one_attached :photo

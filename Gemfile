@@ -8,6 +8,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 #Image service
 gem 'cloudinary', '~> 1.12.0'
 
+gem 'geocoder'
+
 #Seeds
 gem 'faker'
 
