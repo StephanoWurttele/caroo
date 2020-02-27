@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row d-flex justify-content-center pb-40">
+  <div class="row d-flex justify-content-center py-4">
     <div class="col-md-8 pb-40 header-text">
       <h1 class="text-center pb-40"><%= @car.info %></h1>
     </div>
@@ -14,7 +14,7 @@
         <div class="card-body ml-5">
           <div class="card-title justify-content-between d-flex">
             <h4><%= @car.info %></h4>
-            <h2><%= @car.price %>£ / day</h2>
+            <h2><%= @car.price%>£ / day</h2>
           </div>
 
           <p class="card-text">Owner: <%= @car.user.name %></p>
@@ -30,29 +30,31 @@
   <div class="card bg-light mb-3">
     <div class="card-header">
       <p><strong>Reviews:</strong></p>
-      <% if user_signed_in? %>
+      <% if @can_review %>
       <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
       <% end %>
     </div>
     <% if user_signed_in? %>
       <% end %>
       <% @car.reviews.each do |review| %>
-        <div class="card-text">
-          <i class ="far fa-comments"></i> <%= review.content %>
+        <div class="review">
+          <div class="card-text">
+            <i class ="far fa-comments"></i> <%= review.content %>
+          </div>
+          <div class="review-stars">
+            <% review.rating.times do %>
+              <i class="fas fa-star yellow"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star yellow"></i>
+            <% end %>
+          </div>
+          <% if (review.user == current_user) %>
+            <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
+            <br>
+            <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
+          <% end %>
         </div>
-        <div class="review-stars">
-          <% review.rating.times do %>
-            <i class="fas fa-star yellow"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <i class="far fa-star yellow"></i>
-          <% end %>
-      </div>
-          <% if (review.car.user == current_user) %>
-          <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
-          <br>
-          <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
-      <% end %>
     <% end %>
   </div>
 </div>
