@@ -13,7 +13,7 @@
         <p class="card-text"><small class="text-muted">Price: £<%= @car.price %></small></p>
         <div class="d-flex justify-content-between">
           <%= link_to "See car page", car_path(@booking.car) %>
-          <p class="btn-animate"><%= link_to "Return", bookings_path %></p>
+          <button type='button' class='btn-animate mb-3'><span><%=link_to "Return", bookings_path, class:"white-text"%> </span></button>
         </div>
       </div>
     </div>

@@ -1,0 +1,44 @@
+.btn-animate {
+  background-color: black;
+  font-size: 16px;
+  font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
+  border-radius: 4px;
+  border: none;
+  width: 100px;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn-animate span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-animate span:after {
+  content: '<<';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-animate:hover span {
+  padding-left: 25px;
+}
+
+.btn-animate:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.white-text:hover {
+  text-decoration: none;
+  color: white;
+}
+
+
