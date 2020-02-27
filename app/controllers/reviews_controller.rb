@@ -7,8 +7,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.user = current_user
     @review.car = @car
-    if @review.save
+    if @review.save!
       redirect_to car_path(@car)
     else
       render :new
