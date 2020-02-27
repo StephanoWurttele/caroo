@@ -4,7 +4,6 @@ class CarsController < ApplicationController
   def index
     @cars = Car.all
     if params[:brand].present? || params[:model].present? || params[:doors].present? || params[:year].present?
-      raise
       if params[:transmission] == "Any" && params[:kind] == "Any"
         @cars = Car.search_by_not_both("#{params[:brand]} #{params[:model]} #{params[:doors]} #{params[:year]}")
       elsif params[:transmission] == "Any"
@@ -76,7 +75,7 @@ class CarsController < ApplicationController
     @kinds = ['Petrol', 'Diesel', 'Electric', 'Hybrid']
     @trans = ['Manual', 'automatic']
 
-  
+
   end
 
   def get_car
