@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_211525) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
-    t.date "initial_date"
-    t.date "final_date"
+    t.datetime "initial_date"
+    t.datetime "final_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["car_id"], name: "index_bookings_on_car_id"

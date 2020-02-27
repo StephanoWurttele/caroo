@@ -1,2 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="card-user">
+
+  <div>
+    <%= cl_image_tag current_user.photo.key, width: 300, height: 300, crop: :fill, class: "img_profile" %>
+    <button class="btn"><%= link_to "Edit information", edit_user_registration_path %></button>
+    </br>
+    <button class="btn"><%= link_to "Rent your car", destroy_user_session_path, method: :delete %></button>
+  <div>
+
+  <div class="card-user-infos">
+    <p>Name: <%= current_user.name %> </p>
+    <p>Username: <%= current_user.username %> </p>
+    <p>Email: <%= current_user.email %>  </p>
+  </div>
+
+</div>
+
