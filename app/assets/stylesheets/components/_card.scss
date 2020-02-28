@@ -57,3 +57,60 @@
 .card-header p{
   margin-bottom: 5px;
 }
+
+.card-user, .user-info {
+  display:flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.user-info {
+  display: flex;
+  justify-content: left;
+
+
+}
+
+.user-info h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user-info p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin: 50px;
+}
+
+
+.card-user img {
+  height: 100%;
+  width: 250px;
+  object-fit: cover;
+}
+
+.card-user {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(128, 110, 110, 0.2);
+  display: flex;
+  align-items: center;
+  margin: 50px;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 30px;
+}
