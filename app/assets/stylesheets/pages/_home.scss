@@ -94,9 +94,6 @@ svg {
   left: 0;
   top: 0;
   fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
   transition: 0.3s;
 }
 
@@ -105,10 +102,6 @@ svg {
   transition: 0.3s;
   background: black;
   color: white;
-}
-
-.click-dark-home:hover svg {
-  stroke-dashoffset: -480;
 }
 
 .btn span {
