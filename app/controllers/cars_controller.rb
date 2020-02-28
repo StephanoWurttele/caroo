@@ -76,12 +76,6 @@ class CarsController < ApplicationController
   def define_arrays
     @kinds = ['Petrol', 'Diesel', 'Electric', 'Hybrid']
     @trans = ['Manual', 'Automatic']
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 392ca0945e8be99a8c2ae8706fdb7141dce45f8b
   end
 
   def get_car
