@@ -71,3 +71,49 @@
   color: rgb(72, 72, 72) !important;
   margin: 0px !important;
 }
+
+.src-animate-center {
+  width: 180px;
+  height: 40px;
+}
+
+.click-dark-home {
+  color: black;
+  padding: 7px 32px;
+  font-size: 16px;
+  font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid black;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 0.3s;
+}
+
+
+.click-dark-home:hover {
+  transition: 0.3s;
+  background: black;
+  color: white;
+}
+
+.click-dark-home:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
+
