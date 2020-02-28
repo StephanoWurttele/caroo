@@ -41,8 +41,9 @@
           </div>
 
           <div class="positioning">
-            <button type="button" class='click-dark mb-4'><%= link_to "See more", car_url(car), class:"white-text"%></button>
-            <p class='car-detail'>£<%= car.price %> / day</p>
+            <%= link_to car_url(car), class:"white-text" do%>
+            <button type="button" class='click-dark mb-3'>See more</button>
+            <% end %>
           </div>
         </div>
       </div>

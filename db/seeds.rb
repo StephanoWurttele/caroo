@@ -13,14 +13,14 @@ profile_pic1 = URI.open('https://cdn.guidingtech.com/media/assets/WordPress-Impo
 profile_pic2 = URI.open('https://cdn2.f-cdn.com/contestentries/1376995/30494909/5b5e3e75ab981_thumb900.jpg')
 profile_pic3 = URI.open('https://cdn.guidingtech.com/media/assets/WordPress-Import/2012/10/Smiley-Thumbnail.png')
 
-user1 = User.create!(username: "stephanoFW", name: "Stephano", email: "stephanoFW@gmail.com", password:"123456", password_confirmation:"123456")
+user1 = User.create!(username: "stephanoFW", name: "Stephano", email: "stephanoFW@gmail.com", password:"123456", password_confirmation:"123456", address: "SW18 1PS, London")
 user1.photo.attach(io: profile_pic1, filename: 'pp1.png', content_type: 'image/png')
 car1 = Car.create!(description: "This car is lovely to drive and has all the bells and whistles whilst being eco-friendly and exceptionally cheap to run", price: 160,  year: 2018, doors: 5, transmission: "Manual", seats: 5, model: Faker::Vehicle.model, kind: "Electric", brand: Faker::Vehicle.manufacture, user: user1)
 car1.photo.attach(io: vehicle_1, filename: 'vehicle_1.png', content_type: 'image/jpg')
 car4 = Car.create!(description: "This vehicle is stunning inside and out, showcasing the most contemporary technology in Audi's tool chest", price: 150, year: 2017, doors: 5, transmission: "Automatic", seats: 5, model: "A8", kind: "Petrol", brand: "Audi", user: user1)
 car4.photo.attach(io: vehicle_4, filename: 'vehicle_4.png', content_type: 'image/jpg')
 
-user2 = User.create!(username: "MaxD", name: "Max", email: "max.t.denton@gmail.com", password:"123456", password_confirmation:"123456")
+user2 = User.create!(username: "MaxD", name: "Max", email: "max.t.denton@gmail.com", password:"123456", password_confirmation:"123456", address: "SW13 0LW, London")
 user2.photo.attach(io: profile_pic2, filename: 'pp2.png', content_type: 'image/jpg')
 car2 = Car.create!(description: "A fully electric car in mint condition. Rare Signature edition, Full Leather, Bose Sound System, Heated Seats.", price: 170,  year: 2016, doors: 4, transmission: "Automatic", seats: 5, model: Faker::Vehicle.model, kind: "Electric", brand: Faker::Vehicle.manufacture, user: user1)
 car2.photo.attach(io: vehicle_2, filename: 'vehicle_2.png', content_type: 'image/jpg')
@@ -29,7 +29,7 @@ car5.photo.attach(io: vehicle_5, filename: 'vehicle_5.png', content_type: 'image
 car8 = Car.create!(description: "A stunning example in one of the rarest colours- a true eye catcher (Limited edition of 500 cars are the very last of production of this remarkable generation of naturally aspirated v8 M cars", price: 220,  year: 2017, doors: 2, transmission: "Automatic", seats: 4, model: "M3", kind: "Diesel", brand: "BMW", user: user1)
 car8.photo.attach(io: vehicle_8, filename: 'vehicle_8.png', content_type: 'image/jpg')
 
-user3 = User.create!(username: "MaxV", name: "Stephano", email: "max.v@gmail.com", password:"123456", password_confirmation:"123456")
+user3 = User.create!(username: "MaxV", name: "Stephano", email: "max.v@gmail.com", password:"123456", password_confirmation:"123456", address: "E28DY, London")
 user3.photo.attach(io: profile_pic3, filename: 'pp3.png', content_type: 'image/png')
 car3 = Car.create!(description: "Multi purpose car with a range of up to 230 miles. Never have to refill petrol again.", price: 180,  year: 2019, doors: 5, transmission: "Manual", seats: 5, model: Faker::Vehicle.model, kind: "Electric", brand: Faker::Vehicle.manufacture, user: user2)
 car3.photo.attach(io: vehicle_3, filename: 'vehicle_3.png', content_type: 'image/jpg')

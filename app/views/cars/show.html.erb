@@ -23,7 +23,7 @@
           <h2><%= @car.price%>£ / day</h2>
           <div class="form-inputs">
             <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date', start_year: Date.today.year, id: 'start'%>
-            <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end' %>
+            <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end', start_year: Date.today.year %>
             <%= f.hidden_field :totalprice, id: 'hidden', value: @car.price %>
             <h5 id="price" data-price=<%= @car.price %> >Total price: <%= @car.price %> £</h5>
             <%= f.button :submit, class: "btn-primary" %>
@@ -73,3 +73,26 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  const dates = document.querySelectorAll('.form-inputs .form-group');
+  const price = document.querySelector('#price');
+  const rent = document.getElementById("hidden");
+  dates.forEach((field) => {
+      field.addEventListener('click', (event) => {
+          const dayprice = parseInt(price.dataset.price);
+          let startyear = document.querySelector('#booking_initial_date_1i').selectedOptions[0].innerHTML
+          let startmonth = document.querySelector('#booking_initial_date_2i').selectedOptions[0].innerHTML
+          let startday = document.querySelector('#booking_initial_date_3i').selectedOptions[0].innerHTML
+          let startdate = new Date(`${startyear}-${startmonth}-${startday}`);
+          let endyear = document.querySelector('#booking_final_date_1i').selectedOptions[0].innerHTML
+          let endmonth = document.querySelector('#booking_final_date_2i').selectedOptions[0].innerHTML
+          let endday = document.querySelector('#booking_final_date_3i').selectedOptions[0].innerHTML
+          let enddate = new Date(`${endyear}-${endmonth}-${endday}`);
+          let days = (enddate-startdate)/(1000 * 3600 * 24);
+          let finalprice = (days+1)*dayprice
+          price.innerHTML = `Total price: ${finalprice} £`;
+          rent.value = finalprice;
+      });
+  });
+  </script>

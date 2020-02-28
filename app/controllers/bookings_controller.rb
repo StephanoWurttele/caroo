@@ -9,6 +9,14 @@ class BookingsController < ApplicationController
     @owner = @booking.car.user
     @renter = @booking.user
     @car = @booking.car
+
+
+    @markers = @owner.geocode do |dir|
+      {
+        lat: dir.latitude,
+        lng: dir.longitude
+    }
+    end
   end
 
   def new
