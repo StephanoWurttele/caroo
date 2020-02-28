@@ -8,7 +8,7 @@
               <h1><%= @car.brand %> <%= @car.model %></h1>
             </div>
             <div class="col car-show-image">
-              <%= cl_image_tag(@car.photo.key, height:350, width: 530) %>
+              <%= cl_image_tag(@car.photo.key, height:350, width: 530, crop: :fill) %>
             </div>
             <div class="col">
               <div class="card-body">
@@ -52,7 +52,6 @@
         </div>
       </div>
     </div>
-  </div>
   <div class="card bg-light mb-3">
     <div class="card-header">
       <p><strong>Reviews:</strong></p>
@@ -77,35 +76,22 @@
               <% review.rating.times do %>
                 <i class="fas fa-star yellow"></i>
               <% end %>
-            </div>
-            <div class="review-content flex-grow-1">
-              <div class="card-text">
-                <i class ="far fa-comments"></i> <%= review.content %>
-              </div>
-              <div class="review-stars">
-                <% review.rating.times do %>
-                  <i class="fas fa-star yellow"></i>
-                <% end %>
-                <% (5 - review.rating).times do %>
-                  <i class="far fa-star yellow"></i>
-                <% end %>
-              </div>
-            </div>
-            <div class="review-options">
-              <% if (review.user == current_user) %>
-                <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
-                <br>
-                <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
+              <% (5 - review.rating).times do %>
+                <i class="far fa-star yellow"></i>
               <% end %>
             </div>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-    </div>
+          <div class="review-options">
+            <% if (review.user == current_user) %>
+              <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
+              <br>
+              <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
   </div>
 </div>
-
 <script>
   const dates = document.querySelectorAll('.form-inputs .form-group');
   const price = document.querySelector('#price');
@@ -128,3 +114,4 @@
       });
   });
   </script>
+
