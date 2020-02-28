@@ -4,7 +4,7 @@ class Car < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   KINDS = ['Petrol', 'Diesel', 'Electric', 'Hybrid']
-  TRANS = ['Manual', 'automatic']
+  TRANS = ['Manual', 'Automatic']
   validates :model, presence: true
   validates :brand, presence: true
   validates :kind, presence: true, inclusion: {in: KINDS}
