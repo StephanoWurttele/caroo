@@ -30,9 +30,9 @@
           </div>
         <% end %>
       </div>
-    </div>  
+    </div>
   </div>
-            
+
   <div class="card bg-light mb-3">
     <div class="card-header">
       <p><strong>Reviews:</strong></p>
@@ -40,8 +40,6 @@
       <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
       <% end %>
     </div>
-    <% if user_signed_in? %>
-      <% end %>
       <% @car.reviews.each do |review| %>
         <div class="review d-flex border-top">
           <div class="review-picture border-right d-flex align-item-center justify-content-center">
