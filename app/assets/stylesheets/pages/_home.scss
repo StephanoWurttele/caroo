@@ -19,17 +19,10 @@
 .search-form {
   width:30%;
   margin-top: 20px;
-  margin-left: 30px;
 }
 
 .search-input {
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  border: 0 none;
-  color: #777;
-  padding: 6px 15px 0 35px;
-  margin: 10px 0;
+  width: 400px;
 }
 
 .search-form-control {
@@ -46,4 +39,35 @@
 
 .text-center {
   font-family: Oxanium;
+}
+
+.search-choices {
+  display: block !important;
+}
+
+.search-choices-background {
+  background: #ffffff !important;
+  border-radius: 4px !important;
+}
+
+.search-choice-margins {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.search-choice-bar {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.search-choice-title {
+  overflow-wrap: break-word !important;
+  font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
+  margin-left: 20px;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.33333em !important;
+  letter-spacing: 0.0833333em !important;
+  color: rgb(72, 72, 72) !important;
+  margin: 0px !important;
 }
