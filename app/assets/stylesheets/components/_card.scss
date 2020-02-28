@@ -12,12 +12,12 @@
   height: 188px;
 }
 
-.bookings-element h5{
-  font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
+.bookings-element h5 {
+  font-family: 'Titillium Web', 'Times New Roman', Times, serif;
   font-size: 30px;
 }
 
-.book-info{
+.book-info {
   padding: 0 5%;
 }
 
@@ -54,25 +54,27 @@
   margin-bottom: 10px; /* Added */
   background:linear-gradient(160deg, white 70%, white, black, black 70%);
 }
-.card-header p{
+
+.card-header p {
   margin-bottom: 5px;
 }
 .card-home {
-  background: #ffffff !important;
-  border-radius: 4px !important;
-  width: 450px !important;
-  padding: 32px !important;
-  margin-bottom: 16px !important;
+  background: #ffffff;
+  border-radius: 4px;
+  width: 450px;
+  padding: 32px;
+  margin-bottom: 16px;
   margin-left: 50px;
 }
 
 .intro-text {
-   line-height: 36px !important;
+   line-height: 36px;
 }
 
 .font-text {
   font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
   font-size: 25px;
+}
 
 .card-user, .user-info {
   display:flex;
@@ -83,7 +85,6 @@
 .user-info {
   display: flex;
   justify-content: left;
-
 
 }
 
