@@ -25,7 +25,6 @@
                   <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date', start_year: Date.today.year, id: 'start'%>
                   <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end' %>
                   <%= f.hidden_field :totalprice, id: 'hidden', value: @car.price %>
-                  <h5 id="price" data-price=<%= @car.price %> >Total price: <%= @car.price %> £</h5>
                   <%= f.button :submit, class: "btn-primary" %>
                 </div>
               <% end %>
@@ -110,7 +109,6 @@
           let enddate = new Date(`${endyear}-${endmonth}-${endday}`);
           let days = (enddate-startdate)/(1000 * 3600 * 24);
           let finalprice = (days+1)*dayprice
-          price.innerHTML = `Total price: ${finalprice} £`;
           rent.value = finalprice;
       });
   });
