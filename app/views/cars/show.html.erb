@@ -16,6 +16,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="col-auto">
           <div class="car-show-info">
             <div id="booking-form" class="booking-form-show flex-grow-1">
@@ -25,12 +27,17 @@
                   <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date', start_year: Date.today.year, id: 'start'%>
                   <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end' %>
                   <%= f.hidden_field :totalprice, id: 'hidden', value: @car.price %>
+                  <h5 id="price" data-price=<%= @car.price %> >Total price: <%= @car.price %> £</h5>
                   <%= f.button :submit, class: "btn-primary" %>
                 </div>
               <% end %>
             </div>
           </div>
         </div>
+
+
+
+
       </div>
     <div class="card-information-show-car">
       <div class=" row car-show-info-details justify-content-around">
@@ -93,7 +100,7 @@
 </div>
 
 <script>
-  const dates = document.querySelectorAll('.form-inputs .form-group');
+  const dates = document.querySelectorAll('.form-inputs-show .form-group');
   const price = document.querySelector('#price');
   const rent = document.getElementById("hidden");
   dates.forEach((field) => {
@@ -109,8 +116,8 @@
           let enddate = new Date(`${endyear}-${endmonth}-${endday}`);
           let days = (enddate-startdate)/(1000 * 3600 * 24);
           let finalprice = (days+1)*dayprice
+          price.innerHTML = `Total price: ${finalprice} £`;
           rent.value = finalprice;
       });
   });
-
-  </script>
+</script>
