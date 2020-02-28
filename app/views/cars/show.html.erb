@@ -1,38 +1,60 @@
-<div class="container">
-  <div class="row d-flex justify-content-center py-4">
-  </div>
-  <div class="card mb-3">
-    <div class="d-flex align-items-center">
-      <div class="car-show-info">
-        <div class="col">
-          <%= cl_image_tag(@car.photo.key, height:350, width: 530, crop: 'fill') %>
-        </div>
-
-        <div class="col">
-          <div class="card-body">
-            <div class="card-title justify-content-between d-flex">
-              <h1><%= @car.brand %> <%= @car.model %></h1>
+<div class="container justify-content-between">
+    <div class="row d-flex justify-content-center py-4">
+      <div class="card mb-3">
+        <div class="d-flex align-items-center">
+          <div class="car-show-info">
+            <div class="col car-show-image">
+              <%= cl_image_tag(@car.photo.key, height:350, width: 530, crop: 'fill') %>
             </div>
-            <p class="card-text">Owner: <%= @car.user.name %></p>
-            <p class="card-text">Desc: <%= @car.description %></p>
+
+            <div class="col">
+              <div class="card-body">
+                <div class="card-title justify-content-between d-flex">
+                  <h1><%= @car.brand %> <%= @car.model %></h1>
+                </div>
+
+              </div>
+            </div>
           </div>
+
+      <div class="car-show-info">
+        <div id="booking-form" class="booking-form flex-grow-1 mx-5">
+          <%= simple_form_for [@car, @booking] do |f| %>
+            <h2><%= @car.price%>£ / day</h2>
+            <div class="form-inputs">
+              <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date', start_year: Date.today.year, id: 'start'%>
+              <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end' %>
+              <%= f.hidden_field :totalprice, id: 'hidden', value: @car.price %>
+              <h5 id="price" data-price=<%= @car.price %> >Total price: <%= @car.price %> £</h5>
+              <%= f.button :submit, class: "btn-primary" %>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div id="booking-form" class="booking-form flex-grow-1 mx-5">
-        <%= simple_form_for [@car, @booking] do |f| %>
-          <h2><%= @car.price%>£ / day</h2>
-          <div class="form-inputs">
-            <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date', start_year: Date.today.year, id: 'start'%>
-            <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end' %>
-            <%= f.hidden_field :totalprice, id: 'hidden', value: @car.price %>
-            <h5 id="price" data-price=<%= @car.price %> >Total price: <%= @car.price %> £</h5>
-            <%= f.button :submit, class: "btn-primary" %>
-          </div>
-        <% end %>
-      </div>
-    </div>  
+
   </div>
-            
+            <div class=" car-show-info-details d-flex justify-content-between">
+              <div>
+                <p><strong>Car Details</strong></p>
+                <p class="card-text">Owner: <%= @car.user.name %></p>
+                <p class="card-text">Description: <%= @car.description %></p>
+                <p class="card-text"><%= @car.brand %></p>
+                <p class="card-text"><%= @car.kind %></p>
+                <p class="card-text"><%= @car.transmission %></p>
+                <p class="card-text"><%= @car.year %></p>
+              </div>
+
+              <div>
+                <p><strong>Equipment, seats and luggage</strong></p>
+                <p>Air conditioning available</p>
+                <p><%= @car.doors %> Doors</p>
+                <p><%= @car.seats %> Seats</p>
+                <p>1 Suitcases</p>
+                <p>2 Bags</p>
+              </div>
+            </div>
+    </div>
+
   <div class="card bg-light mb-3">
     <div class="card-header">
       <p><strong>Reviews:</strong></p>
@@ -73,5 +95,6 @@
           </div>
         </div>
     <% end %>
+  </div>
   </div>
 </div>
