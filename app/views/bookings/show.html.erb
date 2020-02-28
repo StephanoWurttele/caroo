@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><%= @booking.car.info %></h5>
+        <h3 class="card-title"><%= @booking.car.info %></h3>
         <p class="card-text">Owner: <strong><%= @car.owner %></strong></p>
         <p class="card-title">From: <%= @booking.initial_date.strftime("%B %d, %Y") %> to <%= @booking.final_date.strftime("%B %d, %Y") %></p>
         <p class="card-text"><small class="text-muted">Price: £<%= @booking.price %></small></p>
@@ -16,11 +16,24 @@
         </div>
       </div>
     </div>
-    <div id="map"
-     style="width: 100%;
-     height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>  
+</div>
+
+<div class="card-center-map mb-3" style="max-width: 1080px;">
+  <div class="no-gutters">
+    <div class="text-center">
+      <div class="card-body pb-1 bg-dark toprad">
+        <h2 class="card-title text-white"><%= @car.user.address %></h2>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div id="map"
+      style="width: 100%;
+      height: 300px;
+      border-radius: 0 0 15px 15px"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
   </div>
   
 </div>

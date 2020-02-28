@@ -55,6 +55,14 @@
   background:linear-gradient(160deg, white 70%, white, black, black 70%);
 }
 
+.card-center-map {
+  border-radius: 15px;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  background-color: white;
+}
+
 .card-header p {
   margin-bottom: 5px;
 }
@@ -130,4 +138,8 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 30px;
+}
+
+.toprad{
+  border-radius: 15px 15px 0 0;
 }

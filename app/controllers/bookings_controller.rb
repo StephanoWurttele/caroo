@@ -12,10 +12,10 @@ class BookingsController < ApplicationController
 
 
     @markers = @owner.geocode do |dir|
-      [{
+      {
         lat: dir.latitude,
         lng: dir.longitude
-    }]
+    }
     end
   end
 
