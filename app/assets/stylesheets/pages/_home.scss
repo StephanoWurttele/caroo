@@ -1,12 +1,16 @@
+
+
 .flex-container {
   width:100vw;
-  height:90vh;
+  height:92vh;
   display:flex;
   flex-direction: column;
   justify-content: left;
   align-items: center;
+  background-color: gray;
   background-image: url(asset_path('home_background.jpg'));
   background-size: cover;
+  background-position: center center;
   opacity: 0.9;
 }
 
