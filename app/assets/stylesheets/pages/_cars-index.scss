@@ -55,15 +55,15 @@
 
 .car-title {
   font-size: 26px;
-  color: inherit;
-  margin-top: 0;
+  color: white;
+  margin-top: 0px;
   margin-bottom: 10px;
   font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
 }
 .car-detail {
   font-size: 16px;
-  color: inherit;
-  margin-top: 0;
+  color: white;
+  margin-top: 0px;
   margin-bottom: 10px;
   font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
 }
@@ -78,7 +78,7 @@
 }
 
 .positioning {
-  top: 80px;
+  top: 60px;
   right: 0;
   width: 200px;
   height: 80px;
@@ -94,4 +94,14 @@ ul {
 
 .equipment {
   margin-right: 40px;
+}
+
+.list-box {
+  justify-content: space-around;
+}
+.list-spacing {
+  margin: 15px;
+  padding: 10px;
+  align-items: center;
+  display: inline;
 }

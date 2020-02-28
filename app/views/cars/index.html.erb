@@ -18,10 +18,24 @@
             <h4 class='car-title'><%= car.brand %> <%= car.model %></h4>
             <div class='equipment'>
               <ul>
-                <li title='transmission'><i class="fas fa-car-alt"></i> <%= car.transmission %></li>
-                <li title='year'><i class="far fa-calendar-alt"></i> <%= car.year%></li>
-                <li title='seats'><i class="far fa-user"></i> <%= car.seats %></li>
-                <li title='doors'><i class="fas fa-pager"></i> <%= car.doors %></li>
+                <div class='d-flex list-box'>
+                  <div>
+                    <div class='list-spacing'>
+                     <li title='transmission'><i class="fas fa-car-alt"></i> <%= car.transmission %></li>
+                    </div>
+                    <div class='list-spacing'>
+                      <li title='year'><i class="far fa-calendar-alt"></i> <%= car.year%></li>
+                    </div>
+                  </div>
+                  <div>
+                    <div class='list-spacing'>
+                      <li title='seats'><i class="far fa-user"></i> <%= car.seats %></li>
+                    </div>
+                    <div class='list-spacing'>
+                      <li title='doors'><i class="fas fa-pager"></i> <%= car.doors %></li>
+                    </div>
+                  </div>
+                </div>
               </ul>
             </div>
           </div>
