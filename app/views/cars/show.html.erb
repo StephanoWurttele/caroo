@@ -1,38 +1,58 @@
-<div class="container">
-  <div class="row d-flex justify-content-center py-4">
-  </div>
-  <div class="card mb-3">
-    <div class="d-flex align-items-center">
-      <div class="car-show-info">
+<div class="container car-show-font py-3">
+  <div class="row">
+    <div class="card mb-2">
+      <div class="row">
         <div class="col">
-          <%= cl_image_tag(@car.photo.key, height:350, width: 530, crop: 'fill') %>
-        </div>
-
-        <div class="col">
-          <div class="card-body">
-            <div class="card-title justify-content-between d-flex">
+          <div class="car-show-info">
+            <div class="card-title-show justify-content-between">
               <h1><%= @car.brand %> <%= @car.model %></h1>
             </div>
-            <p class="card-text">Owner: <%= @car.user.name %></p>
-            <p class="card-text">Desc: <%= @car.description %></p>
+            <div class="col car-show-image">
+              <%= cl_image_tag(@car.photo.key, height:350, width: 530) %>
+            </div>
+            <div class="col">
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="car-show-info">
+            <div id="booking-form" class="booking-form-show flex-grow-1">
+              <%= simple_form_for [@car, @booking] do |f| %>
+                <h2><%= @car.price%>£ / day</h2>
+                <div class="form-inputs-show">
+                  <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date', start_year: Date.today.year, id: 'start'%>
+                  <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end' %>
+                  <%= f.hidden_field :totalprice, id: 'hidden', value: @car.price %>
+                  <h5 id="price" data-price=<%= @car.price %> >Total price: <%= @car.price %> £</h5>
+                  <%= f.button :submit, class: "btn-primary" %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-      <div id="booking-form" class="booking-form flex-grow-1 mx-5">
-        <%= simple_form_for [@car, @booking] do |f| %>
-          <h2><%= @car.price%>£ / day</h2>
-          <div class="form-inputs">
-            <%= f.input :initial_date, readonly: 'true', placeholder: 'Start Date', start_year: Date.today.year, id: 'start'%>
-            <%= f.input :final_date, readonly: 'true', placeholder: 'End Date', id: 'end', start_year: Date.today.year %>
-            <%= f.hidden_field :totalprice, id: 'hidden', value: @car.price %>
-            <h5 id="price" data-price=<%= @car.price %> >Total price: <%= @car.price %> £</h5>
-            <%= f.button :submit, class: "btn-primary" %>
-          </div>
-        <% end %>
+    <div class="card-information-show-car">
+      <div class=" row car-show-info-details justify-content-around">
+        <div class="col">
+          <p><strong>Car Details</strong></p>
+          <p class="card-text">- Owner: <%= @car.user.name %></p>
+          <p class="card-text">- Description: <%= @car.description %></p>
+          <p class="card-text">- <%= @car.brand %></p>
+          <p class="card-text">- <%= @car.kind %></p>
+          <p class="card-text">- <%= @car.transmission %></p>
+          <p class="card-text">- <%= @car.year %></p>
+        </div>
+        <div class="col">
+          <p><strong>Equipment, seats and luggage</strong></p>
+          <p>- Air conditioning available</p>
+          <p>- <%= @car.doors %> Doors</p>
+          <p>- <%= @car.seats %> Seats</p>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="card bg-light mb-3">
     <div class="card-header">
       <p><strong>Reviews:</strong></p>
@@ -57,20 +77,32 @@
               <% review.rating.times do %>
                 <i class="fas fa-star yellow"></i>
               <% end %>
-              <% (5 - review.rating).times do %>
-                <i class="far fa-star yellow"></i>
+            </div>
+            <div class="review-content flex-grow-1">
+              <div class="card-text">
+                <i class ="far fa-comments"></i> <%= review.content %>
+              </div>
+              <div class="review-stars">
+                <% review.rating.times do %>
+                  <i class="fas fa-star yellow"></i>
+                <% end %>
+                <% (5 - review.rating).times do %>
+                  <i class="far fa-star yellow"></i>
+                <% end %>
+              </div>
+            </div>
+            <div class="review-options">
+              <% if (review.user == current_user) %>
+                <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
+                <br>
+                <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
               <% end %>
             </div>
           </div>
-          <div class="review-options">
-            <% if (review.user == current_user) %>
-              <i class="fas fa-pencil-alt"><%= link_to "Edit my review", edit_review_path(review) %></i>
-              <br>
-              <i class="fas fa-trash"><%= link_to "Delete my review", review_path(review), method: "delete" %></i>
-            <% end %>
-          </div>
-        </div>
-    <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
   </div>
 </div>
 
