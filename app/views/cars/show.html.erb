@@ -33,7 +33,6 @@
           </div>
         </div>
       </div>
-
     <div class="card-information-show-car">
       <div class=" row car-show-info-details justify-content-around">
         <div class="col">
@@ -53,22 +52,30 @@
         </div>
       </div>
     </div>
-
-    <div class="card bg-light">
-      <div class="card-header">
-        <p><strong>Reviews:</strong></p>
-        <% if @can_review %>
-          <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
-        <% end %>
-      </div>
-      <% if user_signed_in? %>
-        <% @car.reviews.each do |review| %>
-          <div class="review d-flex border-top">
-            <div class="review-picture border-right d-flex align-item-center justify-content-center">
-              <% if review.user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar review-image" %>
-              <% else %>
-                <%= image_tag "pp.png", class: "avatar review-image"%>
+  </div>
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <p><strong>Reviews:</strong></p>
+      <% if @can_review %>
+      <p><%= link_to "Create a Review", new_car_review_path(@car) %><p>
+      <% end %>
+    </div>
+      <% @car.reviews.each do |review| %>
+        <div class="review d-flex border-top">
+          <div class="review-picture border-right d-flex align-item-center justify-content-center">
+            <% if review.user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar review-image" %>
+            <% else %>
+              <%= image_tag "pp.png", class: "avatar review-image"%>
+            <% end %>
+          </div>
+          <div class="review-content flex-grow-1">
+            <div class="card-text">
+              <i class ="far fa-comments"></i> <%= review.content %>
+            </div>
+            <div class="review-stars">
+              <% review.rating.times do %>
+                <i class="fas fa-star yellow"></i>
               <% end %>
             </div>
             <div class="review-content flex-grow-1">
@@ -98,3 +105,26 @@
     </div>
   </div>
 </div>
+
+<script>
+  const dates = document.querySelectorAll('.form-inputs .form-group');
+  const price = document.querySelector('#price');
+  const rent = document.getElementById("hidden");
+  dates.forEach((field) => {
+      field.addEventListener('click', (event) => {
+          const dayprice = parseInt(price.dataset.price);
+          let startyear = document.querySelector('#booking_initial_date_1i').selectedOptions[0].innerHTML
+          let startmonth = document.querySelector('#booking_initial_date_2i').selectedOptions[0].innerHTML
+          let startday = document.querySelector('#booking_initial_date_3i').selectedOptions[0].innerHTML
+          let startdate = new Date(`${startyear}-${startmonth}-${startday}`);
+          let endyear = document.querySelector('#booking_final_date_1i').selectedOptions[0].innerHTML
+          let endmonth = document.querySelector('#booking_final_date_2i').selectedOptions[0].innerHTML
+          let endday = document.querySelector('#booking_final_date_3i').selectedOptions[0].innerHTML
+          let enddate = new Date(`${endyear}-${endmonth}-${endday}`);
+          let days = (enddate-startdate)/(1000 * 3600 * 24);
+          let finalprice = (days+1)*dayprice
+          price.innerHTML = `Total price: ${finalprice} £`;
+          rent.value = finalprice;
+      });
+  });
+  </script>

@@ -2,7 +2,7 @@
   margin: 10px;
   background-color: #1E5F72;
   width: 300px;
-  height: 600px;
+  height: 550px;
 }
 
 .car-grid {
@@ -43,7 +43,7 @@
 }
 
 .car-info {
-  height: 350px;
+  height: 320px;
   position: relative;
   color: #fff;
   padding: 30px;
@@ -55,8 +55,8 @@
 
 .car-title {
   font-size: 26px;
-  color: inherit;
-  margin-top: 0;
+  color: white;
+  margin-top: 0px;
   margin-bottom: 10px;
   font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
 }
@@ -70,8 +70,8 @@
 }
 .car-detail {
   font-size: 16px;
-  color: inherit;
-  margin-top: 0;
+  color: white;
+  margin-top: 0px;
   margin-bottom: 10px;
   font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
 }
@@ -86,10 +86,10 @@
 }
 
 .positioning {
-  top: 80px;
+  top: 60px;
   right: 0;
   width: 200px;
-  height: 100px;
+  height: 80px;
 }
 
 .white-text {
@@ -102,4 +102,14 @@ ul {
 
 .equipment {
   margin-right: 40px;
+}
+
+.list-box {
+  justify-content: space-around;
+}
+.list-spacing {
+  margin: 15px;
+  padding: 10px;
+  align-items: center;
+  display: inline;
 }
